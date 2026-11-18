@@ -19,7 +19,7 @@ O cidadão fotografa um ponto escuro (parada de ônibus, rua, praça) e envia pe
 | **Arquitetura (componentes)** | App web, API, banco, pipeline de dados, serviço de visão, assistente RAG, **automação de chamados (este repositório)**, estação com sensor LDR |
 | **Fontes de dados** | Open-Meteo (sem chave), paradas no padrão GTFS, leituras do sensor LDR, relatos de teste (simulados e documentados) |
 | **Modelos de IA** | LLM local com RAG; classificador de imagens noturnas; classificador das leituras do LDR |
-| **URL do MVP e repositório** | MVP: `<URL_DO_MVP>` · Este repositório: `<URL_DO_REPOSITORIO>` |
+| **URL do MVP e repositório** | MVP: `<URL_DO_MVP>` · Este repositório: [github.com/Arthurpian/luz-segura-rpa](https://github.com/Arthurpian/luz-segura-rpa) |
 | **Indicadores de impacto** | Tempo médio entre relato e conserto, pontos críticos resolvidos, queda de relatos repetidos, cobertura de pontos medidos |
 | **ODS** | 11 (principal), 9 e 10 |
 
@@ -88,7 +88,7 @@ Detalhes no [PDD (Process Definition Document)](docs/PDD.md).
 | SLA vencido | +10 | monitor de SLA |
 
 **Faixas e SLA:** P1 ≥ 70 (24 h) · P2 ≥ 50 (72 h) · P3 ≥ 30 (7 dias) · P4 < 30 (15 dias).
-Cada chamado guarda os fatores com descrição em português (`motivo_prioridade`), o que permite ao painel e ao assistente RAG responder *"por que este ponto está em primeiro?"* com a regra exata. Todos os limiares são configuráveis no `.env`.
+Cada chamado guarda os fatores com descrição em português (`motivo_prioridade`), o que permite ao painel e ao assistente RAG responder *"por que este ponto está em primeiro?"* com a regra exata. Todos os limiares são configuráveis por variável de ambiente no `.env` (lista completa em `src/luzsegura_rpa/config.py`).
 
 ## 5. Exceções e resiliência (nenhuma falha silenciosa)
 
@@ -130,7 +130,7 @@ Contrato completo e exemplos: [`docs/contrato_integracao.md`](docs/contrato_inte
 Requisitos: Python 3.10+.
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/Arthurpian/luz-segura-rpa.git
 cd luz-segura-rpa
 python -m venv .venv
 # Windows: .venv\Scripts\activate    |    Linux/Mac: source .venv/bin/activate
