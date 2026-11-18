@@ -1,0 +1,23 @@
+{
+  "run_id": "RUN-20261118T112647-4baa",
+  "iniciado_em": "2026-11-18T11:26:47-03:00",
+  "finalizado_em": "2026-11-18T11:26:50-03:00",
+  "status": "concluida",
+  "lidos": 1,
+  "chamados_criados": 1,
+  "mesclados": 0,
+  "improcedentes": 0,
+  "revisao_humana": 0,
+  "quarentena": 0,
+  "duplicados_ignorados": 0,
+  "erros": 0,
+  "alertas": 0,
+  "escalados_sla": 0,
+  "clima_degradado": 1,
+  "visao_degradada": 0,
+  "leituras_ldr_invalidas": 1,
+  "duracao_s": 2.924,
+  "motivos_quarentena": {},
+  "motivos_revisao": {},
+  "minutos_manuais_economizados": 6.0
+}

@@ -1,0 +1,584 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "gerado_em": "2026-11-18T11:26:50-03:00",
+    "run_id": "RUN-20261118T112647-4baa",
+    "versao_contrato": "1.0",
+    "total": 12
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.787873,
+          -23.531865
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0001",
+        "status": "aberto",
+        "rotulo_visao": "inexistente",
+        "confianca_visao": 0.93,
+        "validacao_ldr": "confirmado",
+        "lux_medido": 2.1,
+        "parada_id": "PAR-001",
+        "parada_nome": "Parada Terminal Centro",
+        "distancia_parada_m": 19.8,
+        "fluxo_parada": "alto",
+        "qtd_relatos": 3,
+        "clima_indisponivel": true,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 80,
+        "prioridade": "P1",
+        "criado_em": "2026-11-18T11:25:13-03:00",
+        "atualizado_em": "2026-11-18T11:25:18-03:00",
+        "prazo_sla": "2026-11-19T11:25:13-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [],
+        "motivo_prioridade": "P1 (crítica), score 80/100: Foto indica ausência de iluminação (+40); Sensor LDR confirmou baixa luminosidade (2.1 lux) (+15); A 20 m da parada PAR-001 (fluxo alto) (+15); 3 relatos para o mesmo ponto (+10)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 40,
+            "descricao": "Foto indica ausência de iluminação"
+          },
+          {
+            "codigo": "sensor_ldr",
+            "pontos": 15,
+            "descricao": "Sensor LDR confirmou baixa luminosidade (2.1 lux)"
+          },
+          {
+            "codigo": "parada_onibus",
+            "pontos": 15,
+            "descricao": "A 20 m da parada PAR-001 (fluxo alto)"
+          },
+          {
+            "codigo": "recorrencia",
+            "pontos": 10,
+            "descricao": "3 relatos para o mesmo ponto"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.788882,
+          -23.537749
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0004",
+        "status": "aberto",
+        "rotulo_visao": "inexistente",
+        "confianca_visao": 0.88,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": "PAR-007",
+        "parada_nome": "Parada Praça Central",
+        "distancia_parada_m": 14.1,
+        "fluxo_parada": "medio",
+        "qtd_relatos": 1,
+        "clima_indisponivel": true,
+        "reincidente": true,
+        "atrasado": false,
+        "score": 71,
+        "prioridade": "P1",
+        "criado_em": "2026-11-18T11:25:21-03:00",
+        "atualizado_em": "2026-11-18T11:25:21-03:00",
+        "prazo_sla": "2026-11-19T11:25:21-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [
+          "Praça Central"
+        ],
+        "motivo_prioridade": "P1 (crítica), score 71/100: Foto indica ausência de iluminação (+40); A 14 m da parada PAR-007 (fluxo medio) (+11); Próximo a Praça Central (+10); Ponto consertado nos últimos 30 dias voltou a falhar (+10)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 40,
+            "descricao": "Foto indica ausência de iluminação"
+          },
+          {
+            "codigo": "parada_onibus",
+            "pontos": 11,
+            "descricao": "A 14 m da parada PAR-007 (fluxo medio)"
+          },
+          {
+            "codigo": "ponto_sensivel",
+            "pontos": 10,
+            "descricao": "Próximo a Praça Central"
+          },
+          {
+            "codigo": "reincidencia",
+            "pontos": 10,
+            "descricao": "Ponto consertado nos últimos 30 dias voltou a falhar"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.790841,
+          -23.525667
+        ]
+      },
+      "properties": {
+        "id": "LS-20261114-0001",
+        "status": "atrasado",
+        "rotulo_visao": "inexistente",
+        "confianca_visao": 0.9,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": "PAR-004",
+        "parada_nome": "Parada Bairro Norte",
+        "distancia_parada_m": 12.0,
+        "fluxo_parada": "baixo",
+        "qtd_relatos": 2,
+        "clima_indisponivel": false,
+        "reincidente": false,
+        "atrasado": true,
+        "score": 61,
+        "prioridade": "P2",
+        "criado_em": "2026-11-14T11:25:12-03:00",
+        "atualizado_em": "2026-11-18T11:25:21-03:00",
+        "prazo_sla": "2026-11-17T11:25:12-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [],
+        "motivo_prioridade": "P2 (alta), score 61/100: Foto indica ausência de iluminação (+40); A 12 m da parada PAR-004 (fluxo baixo) (+6); 2 relatos para o mesmo ponto (+5); Prazo de atendimento (SLA) vencido (+10)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 40,
+            "descricao": "Foto indica ausência de iluminação"
+          },
+          {
+            "codigo": "parada_onibus",
+            "pontos": 6,
+            "descricao": "A 12 m da parada PAR-004 (fluxo baixo)"
+          },
+          {
+            "codigo": "recorrencia",
+            "pontos": 5,
+            "descricao": "2 relatos para o mesmo ponto"
+          },
+          {
+            "codigo": "sla_vencido",
+            "pontos": 10,
+            "descricao": "Prazo de atendimento (SLA) vencido"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.781974,
+          -23.527419
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0002",
+        "status": "aberto",
+        "rotulo_visao": "fraca",
+        "confianca_visao": 0.81,
+        "validacao_ldr": "confirmado",
+        "lux_medido": 8.4,
+        "parada_id": "PAR-006",
+        "parada_nome": "Parada Escola Estadual",
+        "distancia_parada_m": 18.0,
+        "fluxo_parada": "medio",
+        "qtd_relatos": 1,
+        "clima_indisponivel": true,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 61,
+        "prioridade": "P2",
+        "criado_em": "2026-11-18T11:25:21-03:00",
+        "atualizado_em": "2026-11-18T11:25:21-03:00",
+        "prazo_sla": "2026-11-21T11:25:21-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [
+          "Escola Estadual"
+        ],
+        "motivo_prioridade": "P2 (alta), score 61/100: Foto indica iluminação fraca (+25); Sensor LDR confirmou baixa luminosidade (8.4 lux) (+15); A 18 m da parada PAR-006 (fluxo medio) (+11); Próximo a Escola Estadual (+10)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 25,
+            "descricao": "Foto indica iluminação fraca"
+          },
+          {
+            "codigo": "sensor_ldr",
+            "pontos": 15,
+            "descricao": "Sensor LDR confirmou baixa luminosidade (8.4 lux)"
+          },
+          {
+            "codigo": "parada_onibus",
+            "pontos": 11,
+            "descricao": "A 18 m da parada PAR-006 (fluxo medio)"
+          },
+          {
+            "codigo": "ponto_sensivel",
+            "pontos": 10,
+            "descricao": "Próximo a Escola Estadual"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.786432,
+          -23.535503
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0003",
+        "status": "aberto",
+        "rotulo_visao": "inexistente",
+        "confianca_visao": 0.9,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": "PAR-003",
+        "parada_nome": "Parada Rua Comercial",
+        "distancia_parada_m": 14.1,
+        "fluxo_parada": "medio",
+        "qtd_relatos": 1,
+        "clima_indisponivel": true,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 51,
+        "prioridade": "P2",
+        "criado_em": "2026-11-18T11:25:21-03:00",
+        "atualizado_em": "2026-11-18T11:25:21-03:00",
+        "prazo_sla": "2026-11-21T11:25:21-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [],
+        "motivo_prioridade": "P2 (alta), score 51/100: Foto indica ausência de iluminação (+40); A 14 m da parada PAR-003 (fluxo medio) (+11)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 40,
+            "descricao": "Foto indica ausência de iluminação"
+          },
+          {
+            "codigo": "parada_onibus",
+            "pontos": 11,
+            "descricao": "A 14 m da parada PAR-003 (fluxo medio)"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.791919,
+          -23.530203
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0010",
+        "status": "aberto",
+        "rotulo_visao": "inexistente",
+        "confianca_visao": 1.0,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": null,
+        "parada_nome": null,
+        "distancia_parada_m": null,
+        "fluxo_parada": null,
+        "qtd_relatos": 1,
+        "clima_indisponivel": true,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 40,
+        "prioridade": "P3",
+        "criado_em": "2026-11-18T11:26:47-03:00",
+        "atualizado_em": "2026-11-18T11:26:47-03:00",
+        "prazo_sla": "2026-11-25T11:26:47-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [],
+        "motivo_prioridade": "P3 (média), score 40/100: Foto indica ausência de iluminação (+40)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 40,
+            "descricao": "Foto indica ausência de iluminação"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.781141,
+          -23.532898
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0005",
+        "status": "aberto",
+        "rotulo_visao": "fraca",
+        "confianca_visao": 0.8,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": null,
+        "parada_nome": null,
+        "distancia_parada_m": null,
+        "fluxo_parada": null,
+        "qtd_relatos": 1,
+        "clima_indisponivel": true,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 25,
+        "prioridade": "P4",
+        "criado_em": "2026-11-18T11:25:21-03:00",
+        "atualizado_em": "2026-11-18T11:25:21-03:00",
+        "prazo_sla": "2026-12-03T11:25:21-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [],
+        "motivo_prioridade": "P4 (baixa), score 25/100: Foto indica iluminação fraca (+25)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 25,
+            "descricao": "Foto indica iluminação fraca"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.78026,
+          -23.532898
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0006",
+        "status": "aberto",
+        "rotulo_visao": "fraca",
+        "confianca_visao": 0.8,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": null,
+        "parada_nome": null,
+        "distancia_parada_m": null,
+        "fluxo_parada": null,
+        "qtd_relatos": 1,
+        "clima_indisponivel": true,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 25,
+        "prioridade": "P4",
+        "criado_em": "2026-11-18T11:25:21-03:00",
+        "atualizado_em": "2026-11-18T11:25:21-03:00",
+        "prazo_sla": "2026-12-03T11:25:21-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [],
+        "motivo_prioridade": "P4 (baixa), score 25/100: Foto indica iluminação fraca (+25)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 25,
+            "descricao": "Foto indica iluminação fraca"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.779378,
+          -23.532898
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0007",
+        "status": "aberto",
+        "rotulo_visao": "fraca",
+        "confianca_visao": 0.8,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": null,
+        "parada_nome": null,
+        "distancia_parada_m": null,
+        "fluxo_parada": null,
+        "qtd_relatos": 1,
+        "clima_indisponivel": true,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 25,
+        "prioridade": "P4",
+        "criado_em": "2026-11-18T11:25:21-03:00",
+        "atualizado_em": "2026-11-18T11:25:21-03:00",
+        "prazo_sla": "2026-12-03T11:25:21-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [],
+        "motivo_prioridade": "P4 (baixa), score 25/100: Foto indica iluminação fraca (+25)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 25,
+            "descricao": "Foto indica iluminação fraca"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.778496,
+          -23.532898
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0008",
+        "status": "aberto",
+        "rotulo_visao": "fraca",
+        "confianca_visao": 0.8,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": null,
+        "parada_nome": null,
+        "distancia_parada_m": null,
+        "fluxo_parada": null,
+        "qtd_relatos": 1,
+        "clima_indisponivel": true,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 25,
+        "prioridade": "P4",
+        "criado_em": "2026-11-18T11:25:21-03:00",
+        "atualizado_em": "2026-11-18T11:25:21-03:00",
+        "prazo_sla": "2026-12-03T11:25:21-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [],
+        "motivo_prioridade": "P4 (baixa), score 25/100: Foto indica iluminação fraca (+25)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 25,
+            "descricao": "Foto indica iluminação fraca"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.777614,
+          -23.532898
+        ]
+      },
+      "properties": {
+        "id": "LS-20261118-0009",
+        "status": "aberto",
+        "rotulo_visao": "fraca",
+        "confianca_visao": 0.8,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": null,
+        "parada_nome": null,
+        "distancia_parada_m": null,
+        "fluxo_parada": null,
+        "qtd_relatos": 1,
+        "clima_indisponivel": true,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 25,
+        "prioridade": "P4",
+        "criado_em": "2026-11-18T11:25:21-03:00",
+        "atualizado_em": "2026-11-18T11:25:21-03:00",
+        "prazo_sla": "2026-12-03T11:25:21-03:00",
+        "resolvido_em": null,
+        "pontos_sensiveis": [],
+        "motivo_prioridade": "P4 (baixa), score 25/100: Foto indica iluminação fraca (+25)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 25,
+            "descricao": "Foto indica iluminação fraca"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.788931,
+          -23.537794
+        ]
+      },
+      "properties": {
+        "id": "LS-20261106-0001",
+        "status": "resolvido",
+        "rotulo_visao": "inexistente",
+        "confianca_visao": 0.9,
+        "validacao_ldr": "sem_leitura",
+        "lux_medido": null,
+        "parada_id": "PAR-007",
+        "parada_nome": "Parada Praça Central",
+        "distancia_parada_m": 8.0,
+        "fluxo_parada": "medio",
+        "qtd_relatos": 1,
+        "clima_indisponivel": false,
+        "reincidente": false,
+        "atrasado": false,
+        "score": 61,
+        "prioridade": "P2",
+        "criado_em": "2026-11-06T11:25:12-03:00",
+        "atualizado_em": "2026-11-06T11:25:12-03:00",
+        "prazo_sla": "2026-11-09T11:25:12-03:00",
+        "resolvido_em": "2026-11-13T11:25:12-03:00",
+        "pontos_sensiveis": [
+          "Praça Central"
+        ],
+        "motivo_prioridade": "P2 (alta), score 61/100: Foto indica ausência de iluminação (+40); A 8 m da parada PAR-007 (fluxo medio) (+11); Próximo a Praça Central (+10)",
+        "fatores_prioridade": [
+          {
+            "codigo": "severidade",
+            "pontos": 40,
+            "descricao": "Foto indica ausência de iluminação"
+          },
+          {
+            "codigo": "parada_onibus",
+            "pontos": 11,
+            "descricao": "A 8 m da parada PAR-007 (fluxo medio)"
+          },
+          {
+            "codigo": "ponto_sensivel",
+            "pontos": 10,
+            "descricao": "Próximo a Praça Central"
+          }
+        ]
+      }
+    }
+  ]
+}

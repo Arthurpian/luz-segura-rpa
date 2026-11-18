@@ -1,0 +1,362 @@
+[
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:13-03:00",
+    "etapa": "lgpd",
+    "entidade": "relato",
+    "entidade_id": "33343d24-54b1-429a-acf1-513731e39687",
+    "acao": "anonimizado",
+    "detalhe": "{\"exif_removido\": true, \"pii_mascarada\": false, \"contato_pseudonimizado\": false}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:13-03:00",
+    "etapa": "visao",
+    "entidade": "relato",
+    "entidade_id": "33343d24-54b1-429a-acf1-513731e39687",
+    "acao": "classificado",
+    "detalhe": "{\"rotulo\": \"inexistente\", \"confianca\": 0.93, \"fonte\": \"app_visao\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:13-03:00",
+    "etapa": "sensor_ldr",
+    "entidade": "relato",
+    "entidade_id": "33343d24-54b1-429a-acf1-513731e39687",
+    "acao": "confirmado",
+    "detalhe": "{\"lux\": 2.1, \"distancia_m\": 4.2}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:15-03:00",
+    "etapa": "priorizacao",
+    "entidade": "chamado",
+    "entidade_id": "LS-20261118-0001",
+    "acao": "criado",
+    "detalhe": "{\"score\": 70, \"prioridade\": \"P1\", \"fatores\": [\"severidade\", \"sensor_ldr\", \"parada_onibus\"]}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:15-03:00",
+    "etapa": "persistencia",
+    "entidade": "relato",
+    "entidade_id": "33343d24-54b1-429a-acf1-513731e39687",
+    "acao": "chamado_criado",
+    "detalhe": "{\"chamado_id\": \"LS-20261118-0001\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:15-03:00",
+    "etapa": "alerta",
+    "entidade": "chamado",
+    "entidade_id": "LS-20261118-0001",
+    "acao": "novo_p1",
+    "detalhe": "{\"canais\": [\"arquivo\"]}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:15-03:00",
+    "etapa": "lgpd",
+    "entidade": "relato",
+    "entidade_id": "ee4dffb1-e424-4074-8d09-bbfbd89c99ca",
+    "acao": "anonimizado",
+    "detalhe": "{\"exif_removido\": true, \"pii_mascarada\": false, \"contato_pseudonimizado\": false}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:15-03:00",
+    "etapa": "visao",
+    "entidade": "relato",
+    "entidade_id": "ee4dffb1-e424-4074-8d09-bbfbd89c99ca",
+    "acao": "classificado",
+    "detalhe": "{\"rotulo\": \"inexistente\", \"confianca\": 0.9, \"fonte\": \"app_visao\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:15-03:00",
+    "etapa": "sensor_ldr",
+    "entidade": "relato",
+    "entidade_id": "ee4dffb1-e424-4074-8d09-bbfbd89c99ca",
+    "acao": "confirmado",
+    "detalhe": "{\"lux\": 2.1, \"distancia_m\": 10.8}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:18-03:00",
+    "etapa": "deduplicacao",
+    "entidade": "chamado",
+    "entidade_id": "LS-20261118-0001",
+    "acao": "mesclado",
+    "detalhe": "{\"qtd_relatos\": 2, \"score_anterior\": 70, \"score_novo\": 75}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:18-03:00",
+    "etapa": "persistencia",
+    "entidade": "relato",
+    "entidade_id": "ee4dffb1-e424-4074-8d09-bbfbd89c99ca",
+    "acao": "mesclado",
+    "detalhe": "{\"chamado_id\": \"LS-20261118-0001\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:18-03:00",
+    "etapa": "lgpd",
+    "entidade": "relato",
+    "entidade_id": "1f809427-4b9b-498d-b0de-0a794084ece1",
+    "acao": "anonimizado",
+    "detalhe": "{\"exif_removido\": true, \"pii_mascarada\": false, \"contato_pseudonimizado\": false}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:18-03:00",
+    "etapa": "visao",
+    "entidade": "relato",
+    "entidade_id": "1f809427-4b9b-498d-b0de-0a794084ece1",
+    "acao": "classificado",
+    "detalhe": "{\"rotulo\": \"inexistente\", \"confianca\": 0.91, \"fonte\": \"heuristica_luminancia\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:18-03:00",
+    "etapa": "sensor_ldr",
+    "entidade": "relato",
+    "entidade_id": "1f809427-4b9b-498d-b0de-0a794084ece1",
+    "acao": "confirmado",
+    "detalhe": "{\"lux\": 2.1, \"distancia_m\": 11.2}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "deduplicacao",
+    "entidade": "chamado",
+    "entidade_id": "LS-20261118-0001",
+    "acao": "mesclado",
+    "detalhe": "{\"qtd_relatos\": 3, \"score_anterior\": 75, \"score_novo\": 80}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "persistencia",
+    "entidade": "relato",
+    "entidade_id": "1f809427-4b9b-498d-b0de-0a794084ece1",
+    "acao": "mesclado",
+    "detalhe": "{\"chamado_id\": \"LS-20261118-0001\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "lgpd",
+    "entidade": "relato",
+    "entidade_id": "f6911306-b5cb-4ed8-8d49-1e82a1602718",
+    "acao": "anonimizado",
+    "detalhe": "{\"exif_removido\": true, \"pii_mascarada\": false, \"contato_pseudonimizado\": false}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "visao",
+    "entidade": "relato",
+    "entidade_id": "f6911306-b5cb-4ed8-8d49-1e82a1602718",
+    "acao": "classificado",
+    "detalhe": "{\"rotulo\": \"fraca\", \"confianca\": 0.81, \"fonte\": \"app_visao\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "sensor_ldr",
+    "entidade": "relato",
+    "entidade_id": "f6911306-b5cb-4ed8-8d49-1e82a1602718",
+    "acao": "confirmado",
+    "detalhe": "{\"lux\": 8.4, \"distancia_m\": 5.9}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "priorizacao",
+    "entidade": "chamado",
+    "entidade_id": "LS-20261118-0002",
+    "acao": "criado",
+    "detalhe": "{\"score\": 61, \"prioridade\": \"P2\", \"fatores\": [\"severidade\", \"sensor_ldr\", \"parada_onibus\", \"ponto_sensivel\"]}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "persistencia",
+    "entidade": "relato",
+    "entidade_id": "f6911306-b5cb-4ed8-8d49-1e82a1602718",
+    "acao": "chamado_criado",
+    "detalhe": "{\"chamado_id\": \"LS-20261118-0002\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "lgpd",
+    "entidade": "relato",
+    "entidade_id": "b3734e31-3c5a-4be7-87b6-b9d6820a4269",
+    "acao": "anonimizado",
+    "detalhe": "{\"exif_removido\": true, \"pii_mascarada\": false, \"contato_pseudonimizado\": false}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "visao",
+    "entidade": "relato",
+    "entidade_id": "b3734e31-3c5a-4be7-87b6-b9d6820a4269",
+    "acao": "classificado",
+    "detalhe": "{\"rotulo\": \"adequada\", \"confianca\": 0.93, \"fonte\": \"app_visao\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "decisao_iluminacao",
+    "entidade": "relato",
+    "entidade_id": "b3734e31-3c5a-4be7-87b6-b9d6820a4269",
+    "acao": "improcedente",
+    "detalhe": "{\"confianca\": 0.93}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "lgpd",
+    "entidade": "relato",
+    "entidade_id": "e7ada418-df27-4bd8-a2d5-a6e14e77ad97",
+    "acao": "anonimizado",
+    "detalhe": "{\"exif_removido\": true, \"pii_mascarada\": false, \"contato_pseudonimizado\": false}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "visao",
+    "entidade": "relato",
+    "entidade_id": "e7ada418-df27-4bd8-a2d5-a6e14e77ad97",
+    "acao": "classificado",
+    "detalhe": "{\"rotulo\": \"inexistente\", \"confianca\": 0.51, \"fonte\": \"heuristica_luminancia\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "revisao",
+    "entidade": "relato",
+    "entidade_id": "e7ada418-df27-4bd8-a2d5-a6e14e77ad97",
+    "acao": "enviado_para_revisao",
+    "detalhe": "{\"motivo\": \"baixa_confianca_visao\", \"revisao_id\": 1, \"rotulo\": \"inexistente\", \"confianca\": 0.51}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "lgpd",
+    "entidade": "relato",
+    "entidade_id": "f3d4d9f8-ad8d-4154-82b8-7d367ba4c1fe",
+    "acao": "anonimizado",
+    "detalhe": "{\"exif_removido\": true, \"pii_mascarada\": false, \"contato_pseudonimizado\": false}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "visao",
+    "entidade": "relato",
+    "entidade_id": "f3d4d9f8-ad8d-4154-82b8-7d367ba4c1fe",
+    "acao": "classificado",
+    "detalhe": "{\"rotulo\": \"inexistente\", \"confianca\": 0.9, \"fonte\": \"app_visao\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "sensor_ldr",
+    "entidade": "relato",
+    "entidade_id": "f3d4d9f8-ad8d-4154-82b8-7d367ba4c1fe",
+    "acao": "contestado",
+    "detalhe": "{\"lux\": 42.0, \"distancia_m\": 5.4}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "revisao",
+    "entidade": "relato",
+    "entidade_id": "f3d4d9f8-ad8d-4154-82b8-7d367ba4c1fe",
+    "acao": "enviado_para_revisao",
+    "detalhe": "{\"motivo\": \"conflito_sensor_ldr\", \"revisao_id\": 2, \"rotulo\": \"inexistente\", \"lux_medido\": 42.0, \"dispositivo\": \"LDR-02\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "validacao",
+    "entidade": "relato",
+    "entidade_id": "5031ea26-6f2b-4b24-800c-f0af10a25509",
+    "acao": "quarentena",
+    "detalhe": "{\"motivo\": \"fora_do_territorio\", \"detalhe\": \"coordenada fora da área do piloto\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "validacao",
+    "entidade": "relato",
+    "entidade_id": "09_json_corrompido.json",
+    "acao": "quarentena",
+    "detalhe": "{\"motivo\": \"json_invalido\", \"detalhe\": \"linha 1, coluna 42\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "validacao",
+    "entidade": "relato",
+    "entidade_id": "9eb8d9ef-9a15-43d2-9d91-d252eede4a1d",
+    "acao": "quarentena",
+    "detalhe": "{\"motivo\": \"foto_ausente\", \"detalhe\": \"foto_que_nao_existe.jpg\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "validacao",
+    "entidade": "relato",
+    "entidade_id": "272687ac-ccd5-4de5-b10c-de184d17da5a",
+    "acao": "quarentena",
+    "detalhe": "{\"motivo\": \"data_futura\", \"detalhe\": \"criado_em está no futuro\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "validacao",
+    "entidade": "relato",
+    "entidade_id": "x",
+    "acao": "quarentena",
+    "detalhe": "{\"motivo\": \"schema_invalido\", \"detalhe\": \"campos: criado_em, foto, id, latitude\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "lgpd",
+    "entidade": "relato",
+    "entidade_id": "3cd342d7-11c9-4e06-93e9-3e00c77635a7",
+    "acao": "anonimizado",
+    "detalhe": "{\"exif_removido\": true, \"pii_mascarada\": true, \"contato_pseudonimizado\": true}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "visao",
+    "entidade": "relato",
+    "entidade_id": "3cd342d7-11c9-4e06-93e9-3e00c77635a7",
+    "acao": "classificado",
+    "detalhe": "{\"rotulo\": \"inexistente\", \"confianca\": 0.9, \"fonte\": \"heuristica_luminancia\"}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "sensor_ldr",
+    "entidade": "relato",
+    "entidade_id": "3cd342d7-11c9-4e06-93e9-3e00c77635a7",
+    "acao": "sem_leitura",
+    "detalhe": "{\"lux\": null, \"distancia_m\": null}"
+  },
+  {
+    "run_id": "RUN-20261118T112513-d6d5",
+    "momento": "2026-11-18T11:25:21-03:00",
+    "etapa": "priorizacao",
+    "entidade": "chamado",
+    "entidade_id": "LS-20261118-0003",
+    "acao": "criado",
+    "detalhe": "{\"score\": 51, \"prioridade\": \"P2\", \"fatores\": [\"severidade\", \"parada_onibus\"]}"
+  }
+]

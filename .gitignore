@@ -1,0 +1,28 @@
+# segredos
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# dados gerados em tempo de execução (o seed recria tudo)
+data/luzsegura.db
+data/.robo.lock
+data/inbox/*
+!data/inbox/.gitkeep
+data/quarentena/
+data/erros/
+data/processados/
+data/fotos_anonimizadas/
+data/saida/
+data/sensores/
+
+# log "vivo"; as amostras versionadas ficam em logs/amostras/
+logs/luzsegura_robo.jsonl*
+logs/execucoes/
+
+# resultado local do testar_no_windows.bat
+teste_windows_resultado.txt

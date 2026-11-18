@@ -1,0 +1,13 @@
+stop_id,stop_name,stop_lat,stop_lon,tipo,fluxo,origem
+PAR-001,Parada Terminal Centro,-23.532,-46.788,parada_onibus,alto,simulado
+PAR-002,Parada Avenida Principal,-23.529305,-46.785551,parada_onibus,alto,simulado
+PAR-003,Parada Rua Comercial,-23.535593,-46.78653,parada_onibus,medio,simulado
+PAR-004,Parada Bairro Norte,-23.525712,-46.790939,parada_onibus,baixo,simulado
+PAR-005,Parada Hospital,-23.533797,-46.792899,parada_onibus,alto,simulado
+PAR-006,Parada Escola Estadual,-23.527508,-46.782121,parada_onibus,medio,simulado
+PAR-007,Parada Praça Central,-23.537839,-46.78898,parada_onibus,medio,simulado
+PAR-008,Parada Vila Leste,-23.523915,-46.784081,parada_onibus,baixo,simulado
+EST-001,Estação de trem,-23.531102,-46.78947,estacao,,simulado
+ESC-001,Escola Estadual,-23.527329,-46.781729,escola,,simulado
+UBS-001,UBS Centro,-23.533976,-46.793291,ubs,,simulado
+PRA-001,Praça Central,-23.537929,-46.788784,praca,,simulado

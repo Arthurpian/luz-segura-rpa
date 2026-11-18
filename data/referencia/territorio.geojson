@@ -1,0 +1,47 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Piloto Centro de Osasco (simulado)",
+        "observacao": "Polígono hexagonal de ~1,6 km em torno do centro. Substituir pelo limite real do bairro."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -46.774424,
+              -23.524814
+            ],
+            [
+              -46.788,
+              -23.517627
+            ],
+            [
+              -46.801576,
+              -23.524814
+            ],
+            [
+              -46.801576,
+              -23.539186
+            ],
+            [
+              -46.788,
+              -23.546373
+            ],
+            [
+              -46.774424,
+              -23.539186
+            ],
+            [
+              -46.774424,
+              -23.524814
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

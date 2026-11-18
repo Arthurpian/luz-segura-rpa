@@ -1,0 +1,36 @@
+{
+  "run_id": "RUN-20261118T112513-d6d5",
+  "iniciado_em": "2026-11-18T11:25:13-03:00",
+  "finalizado_em": "2026-11-18T11:25:21-03:00",
+  "status": "concluida",
+  "lidos": 24,
+  "chamados_criados": 9,
+  "mesclados": 2,
+  "improcedentes": 1,
+  "revisao_humana": 3,
+  "quarentena": 8,
+  "duplicados_ignorados": 1,
+  "erros": 0,
+  "alertas": 3,
+  "escalados_sla": 1,
+  "clima_degradado": 11,
+  "visao_degradada": 0,
+  "leituras_ldr_invalidas": 1,
+  "duracao_s": 8.645,
+  "motivos_quarentena": {
+    "fora_do_territorio": 1,
+    "json_invalido": 1,
+    "foto_ausente": 1,
+    "data_futura": 1,
+    "schema_invalido": 1,
+    "conflito_id": 1,
+    "foto_corrompida": 1,
+    "relato_expirado": 1
+  },
+  "motivos_revisao": {
+    "baixa_confianca_visao": 1,
+    "conflito_sensor_ldr": 1,
+    "suspeita_abuso": 1
+  },
+  "minutos_manuais_economizados": 144.0
+}

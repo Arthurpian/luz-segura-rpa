@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luz Segura — Painel do Robô RPA</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/static/vendor/leaflet/leaflet.css">
+<style>
+  :root {
+    --fundo: #0e1525; --painel: #172036; --linha: #2a3554; --texto: #eef1f7; --suave: #a9b3c9;
+    --luz: #ffd54a; --p1: #ff5b5b; --p2: #ff9f43; --p3: #f6d04d; --p4: #8fa3bf; --ok: #4cd18a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         background: var(--fundo); color: var(--texto); }
+  header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+           padding: 16px 24px; border-bottom: 1px solid var(--linha); }
+  h1 { margin: 0; font-size: 20px; } h1 span { color: var(--luz); }
+  h2 { font-size: 16px; margin: 0 0 12px; }
+  .sub { color: var(--suave); font-size: 13px; }
+  main { padding: 20px 24px; display: grid; gap: 20px; grid-template-columns: 1.3fr 1fr; }
+  @media (max-width: 960px) { main { grid-template-columns: 1fr; } }
+  section { background: var(--painel); border: 1px solid var(--linha); border-radius: 10px; padding: 16px; }
+  .kpis { grid-column: 1 / -1; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          background: none; border: 0; padding: 0; }
+  .kpi { background: var(--painel); border: 1px solid var(--linha); border-radius: 10px; padding: 12px 14px; }
+  .kpi b { display: block; font-size: 26px; } .kpi small { color: var(--suave); }
+  #mapa { height: 430px; border-radius: 8px; }
+  .leaflet-container { background: #1b2540 !important; }
+  #mapa-off { display: none; color: var(--suave); padding: 40px; text-align: center; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--linha); vertical-align: top; }
+  th { color: var(--suave); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 999px; font-weight: 700; font-size: 12px; color: #111; }
+  .P1 { background: var(--p1); } .P2 { background: var(--p2); } .P3 { background: var(--p3); } .P4 { background: var(--p4); }
+  .resolvido { background: var(--ok); }
+  details summary { cursor: pointer; color: var(--luz); }
+  details ul { margin: 6px 0 0; padding-left: 18px; color: var(--suave); }
+  button, input, select { font: inherit; border-radius: 6px; border: 1px solid var(--linha); background: #0b1120;
+                          color: var(--texto); padding: 6px 10px; }
+  button { cursor: pointer; background: var(--luz); color: #1a1a1a; border: 0; font-weight: 700; }
+  button.sec { background: #2c3a5c; color: var(--texto); font-weight: 600; }
+  button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 3px solid var(--luz); outline-offset: 2px; }
+  .linha { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  #msg { min-height: 20px; color: var(--luz); font-size: 13px; }
+  .full { grid-column: 1 / -1; }
+  .scroll { max-height: 430px; overflow: auto; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1><span aria-hidden="true">●</span> Luz Segura <span class="sub">— painel do robô de triagem</span></h1>
+    <div class="sub" id="ultima">carregando…</div>
+  </div>
+  <div class="linha">
+    <label for="chave" class="sub">X-API-Key</label>
+    <input id="chave" type="password" placeholder="chave do .env" autocomplete="off" size="16">
+    <button id="executar">Executar robô agora</button>
+  </div>
+</header>
+<div id="msg" role="status" aria-live="polite" style="padding:0 24px"></div>
+<main>
+  <section class="kpis" aria-label="Indicadores" id="kpis"></section>
+
+  <section aria-labelledby="t-mapa">
+    <h2 id="t-mapa">Mapa dos chamados</h2>
+    <div id="mapa" role="img" aria-label="Mapa com os chamados por prioridade"></div>
+    <div id="mapa-off">Mapa indisponível sem internet. A lista ao lado tem todas as informações.</div>
+  </section>
+
+  <section aria-labelledby="t-lista">
+    <h2 id="t-lista">Fila priorizada</h2>
+    <div class="linha" style="margin-bottom:8px">
+      <label for="filtro" class="sub">Prioridade</label>
+      <select id="filtro"><option value="">todas</option><option>P1</option><option>P2</option><option>P3</option><option>P4</option></select>
+    </div>
+    <div class="scroll"><table><thead><tr><th>Chamado</th><th>Prior.</th><th>Por quê?</th><th></th></tr></thead>
+      <tbody id="lista"></tbody></table></div>
+  </section>
+
+  <section aria-labelledby="t-rev">
+    <h2 id="t-rev">Revisão humana (pessoa no circuito)</h2>
+    <div class="scroll"><table><thead><tr><th>#</th><th>Motivo</th><th>Detalhe</th><th>Decisão</th></tr></thead>
+      <tbody id="revisao"></tbody></table></div>
+  </section>
+
+  <section aria-labelledby="t-exec">
+    <h2 id="t-exec">Execuções do robô</h2>
+    <div class="scroll"><table><thead><tr><th>Run</th><th>Status</th><th>Lidos</th><th>Criados</th><th>Quarent.</th><th>Erros</th></tr></thead>
+      <tbody id="execucoes"></tbody></table></div>
+  </section>
+</main>
+
+<script src="/static/vendor/leaflet/leaflet.js"></script>
+<script>
+const CORES = { P1: "#ff5b5b", P2: "#ff9f43", P3: "#f6d04d", P4: "#8fa3bf" };
+const $ = (id) => document.getElementById(id);
+const esc = (t) => String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+let mapa = null, camada = null;
+
+try { $("chave").value = sessionStorage.getItem("ls_chave") || ""; } catch (e) {}
+$("chave").addEventListener("change", () => { try { sessionStorage.setItem("ls_chave", $("chave").value); } catch (e) {} });
+
+async function api(caminho, opcoes = {}) {
+  const r = await fetch(caminho, { ...opcoes, headers: { "Content-Type": "application/json", "X-API-Key": $("chave").value, ...(opcoes.headers || {}) } });
+  const corpo = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(corpo.detail || r.statusText);
+  return corpo;
+}
+
+function aviso(texto) { $("msg").textContent = texto; setTimeout(() => { if ($("msg").textContent === texto) $("msg").textContent = ""; }, 6000); }
+
+function iniciarMapa() {
+  if (typeof L === "undefined") { $("mapa").style.display = "none"; $("mapa-off").style.display = "block"; return; }
+  mapa = L.map("mapa").setView([-23.532, -46.788], 14);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }).addTo(mapa);
+  camada = L.layerGroup().addTo(mapa);
+  // território e pontos de referência: dão contexto mesmo se os tiles do mapa não carregarem
+  api("/referencias").then((ref) => {
+    L.geoJSON(ref.territorio, { style: { color: "#ffd54a", weight: 2, fillOpacity: 0.04, dashArray: "6 4" } }).addTo(mapa);
+    ref.pontos.forEach((p) => L.circleMarker([p.lat, p.lon], { radius: 4, color: "#fff", weight: 1,
+      fillColor: p.tipo === "parada_onibus" ? "#ffffff" : "#7dd3fc", fillOpacity: 1 }).bindTooltip(p.nome).addTo(mapa));
+  }).catch(() => {});
+}
+
+async function carregar() {
+  const filtro = $("filtro").value;
+  const [ind, chamados, fila, execs] = await Promise.all([
+    api("/indicadores"), api("/chamados" + (filtro ? "?prioridade=" + filtro : "")), api("/revisao"), api("/execucoes?limite=10")]);
+
+  const ativos = ind.chamados_ativos_por_prioridade || {};
+  $("kpis").innerHTML = [
+    ["P1 ativos", ativos.P1 || 0], ["P2 ativos", ativos.P2 || 0], ["Relatos tratados", ind.total_relatos],
+    ["Mesclados (dedupe)", ind.taxa_mesclados_pct + "%"], ["Em revisão", ind.revisoes_pendentes],
+    ["Horas manuais poupadas", ind.horas_manuais_economizadas],
+    ["Tempo médio até conserto", ind.tempo_medio_ate_conserto_h != null ? ind.tempo_medio_ate_conserto_h + " h" : "—"],
+  ].map(([n, v]) => `<div class="kpi"><b>${esc(v)}</b><small>${esc(n)}</small></div>`).join("");
+
+  $("lista").innerHTML = chamados.map((c) => `
+    <tr>
+      <td><b>${esc(c.id)}</b><br><span class="sub">${esc(c.parada_nome || "sem parada próxima")} · ${c.qtd_relatos} relato(s)${c.atrasado ? " · <b>SLA vencido</b>" : ""}</span></td>
+      <td><span class="tag ${c.status === "resolvido" ? "resolvido" : c.prioridade}">${c.status === "resolvido" ? "OK" : esc(c.prioridade)}</span><br><span class="sub">${c.score}/100</span></td>
+      <td><details><summary>ver fatores</summary><ul>${(c.fatores_prioridade || []).map((f) => `<li>${esc(f.descricao)} <b>+${f.pontos}</b></li>`).join("")}</ul></details></td>
+      <td>${c.status !== "resolvido" ? `<button class="sec" data-resolver="${esc(c.id)}" aria-label="Marcar ${esc(c.id)} como resolvido">Resolvido</button>` : ""}</td>
+    </tr>`).join("") || `<tr><td colspan="4" class="sub">Nenhum chamado.</td></tr>`;
+
+  $("revisao").innerHTML = fila.map((f) => `
+    <tr>
+      <td>${f.id}</td><td>${esc(f.motivo)}</td>
+      <td class="sub">${esc(Object.entries(f.detalhe).map(([k, v]) => k + ": " + v).join(", "))}</td>
+      <td class="linha">
+        <select id="rot-${f.id}" aria-label="Rótulo do revisor"><option value="inexistente">sem luz</option><option value="fraca">fraca</option><option value="adequada">adequada</option></select>
+        <button data-aprovar="${f.id}">Aprovar</button><button class="sec" data-rejeitar="${f.id}">Rejeitar</button>
+      </td>
+    </tr>`).join("") || `<tr><td colspan="4" class="sub">Fila vazia.</td></tr>`;
+
+  $("execucoes").innerHTML = execs.map((e) => `
+    <tr><td class="sub">${esc(e.run_id)}</td><td>${esc(e.status)}</td><td>${e.resumo?.lidos ?? "—"}</td>
+        <td>${e.resumo?.chamados_criados ?? "—"}</td><td>${e.resumo?.quarentena ?? "—"}</td><td>${e.resumo?.erros ?? "—"}</td></tr>`).join("");
+  $("ultima").textContent = execs[0] ? `Última execução: ${execs[0].run_id} (${execs[0].status})` : "Robô ainda não executou";
+
+  if (camada) {
+    camada.clearLayers();
+    const pontos = [];
+    chamados.forEach((c) => {
+      const cor = c.status === "resolvido" ? "#4cd18a" : CORES[c.prioridade];
+      L.circleMarker([c.latitude, c.longitude], { radius: 7 + Math.min(c.qtd_relatos, 4) * 2, color: "#111", weight: 1, fillColor: cor, fillOpacity: .9 })
+        .bindPopup(`<b>${esc(c.id)}</b> · ${esc(c.prioridade)} (${c.score})<br>${esc(c.motivo_prioridade)}`).addTo(camada);
+      pontos.push([c.latitude, c.longitude]);
+    });
+    if (pontos.length) mapa.fitBounds(pontos, { padding: [30, 30], maxZoom: 16 });
+  }
+}
+
+document.addEventListener("click", async (ev) => {
+  const t = ev.target;
+  try {
+    if (t.dataset.resolver) {
+      await api(`/chamados/${t.dataset.resolver}/status`, { method: "PATCH", body: JSON.stringify({ status: "resolvido", responsavel: "painel" }) });
+      aviso(`Chamado ${t.dataset.resolver} marcado como resolvido.`);
+    } else if (t.dataset.aprovar) {
+      const rotulo = $("rot-" + t.dataset.aprovar).value;
+      await api(`/revisao/${t.dataset.aprovar}/decisao`, { method: "POST", body: JSON.stringify({ decisao: "aprovar", rotulo, revisor: "painel" }) });
+      aviso("Aprovado e reenfileirado. Execute o robô para gerar o chamado.");
+    } else if (t.dataset.rejeitar) {
+      await api(`/revisao/${t.dataset.rejeitar}/decisao`, { method: "POST", body: JSON.stringify({ decisao: "rejeitar", revisor: "painel" }) });
+      aviso("Relato rejeitado.");
+    } else if (t.id === "executar") {
+      t.disabled = true; aviso("Executando robô…");
+      const r = await api("/robo/executar", { method: "POST" });
+      aviso(`Execução ${r.run_id}: ${r.lidos} lido(s), ${r.chamados_criados} criado(s), ${r.quarentena} em quarentena, ${r.erros} erro(s).`);
+      t.disabled = false;
+    } else { return; }
+    await carregar();
+  } catch (e) { aviso("Erro: " + e.message); t.disabled = false; }
+});
+$("filtro").addEventListener("change", carregar);
+
+iniciarMapa();
+carregar().catch((e) => aviso("Erro ao carregar: " + e.message));
+setInterval(() => carregar().catch(() => {}), 30000);
+</script>
+</body>
+</html>
