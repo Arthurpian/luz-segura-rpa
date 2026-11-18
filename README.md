@@ -127,19 +127,57 @@ Contrato completo e exemplos: [`docs/contrato_integracao.md`](docs/contrato_inte
 
 ## 8. Como executar
 
-Requisitos: Python 3.10+.
+Requisitos: Python 3.10 ou mais novo ([python.org](https://www.python.org/downloads/)) e Git.
+
+### Windows (cmd)
+
+```bat
+git clone https://github.com/Arthurpian/luz-segura-rpa.git
+cd luz-segura-rpa
+
+py -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+
+python main.py seed
+python main.py run
+python main.py api
+```
+
+- **Use `py`, não `python`, para criar o ambiente.** No Windows o Python costuma vir com o comando `py`. A palavra `python` só funciona depois de ativar o ambiente (a linha passa a começar com `(.venv)`).
+- **Ative o ambiente em todo terminal novo** com `.venv\Scripts\activate`. Criar o ambiente e instalar as dependências é só na primeira vez.
+- **Atalho:** dois cliques em **`testar_no_windows.bat`** fazem tudo isso sozinhos (criam o ambiente, instalam, executam o robô, testam a API e rodam os testes) e salvam o resultado em `teste_windows_resultado.txt`.
+
+### Linux / Mac
 
 ```bash
 git clone https://github.com/Arthurpian/luz-segura-rpa.git
 cd luz-segura-rpa
-python -m venv .venv
-# Windows: .venv\Scripts\activate    |    Linux/Mac: source .venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-
-python main.py seed           # gera 21 cenários de teste + histórico (apaga dados anteriores)
-python main.py run            # executa o robô uma vez e mostra o resumo
-python main.py api            # painel em http://127.0.0.1:8000  ·  API em /docs
+python main.py seed && python main.py run && python main.py api
 ```
+
+### O que cada comando faz
+
+| Comando | O que faz |
+|---|---|
+| `python main.py seed` | Apaga os dados anteriores e gera os 21 cenários de teste e o histórico |
+| `python main.py run` | Executa o robô uma vez e mostra o resumo |
+| `python main.py api` | Liga a API e o painel em `http://127.0.0.1:8000` (documentação em `/docs`). Fica rodando até Ctrl+C |
+
+Dá para fazer tudo num terminal só, nessa ordem. Com a API ligada, use o botão **"Executar robô agora"** do painel para rodar o robô de novo. A senha do painel (campo X-API-Key) é `troque-esta-chave`, ou a que você definir no `.env` (veja Configuração, abaixo).
+
+### Problemas comuns
+
+| Mensagem | Solução |
+|---|---|
+| `Python não foi encontrado; executar sem argumentos para instalar do Microsoft Store...` | Crie o ambiente com `py -m venv .venv` e ative com `.venv\Scripts\activate` antes de usar `python`. Opcional: desligue os atalhos "python.exe" em Configurações → Aplicativos → Configurações avançadas de aplicativos → Aliases de execução do aplicativo |
+| `No module named ...` | O ambiente não está ativado ou as dependências não foram instaladas: `.venv\Scripts\activate` e `pip install -r requirements.txt` |
+| `Feche a API (python main.py api) antes do seed` | A API está ligada usando o banco. Pare com Ctrl+C e rode o `seed` de novo |
+| Botões do painel dão "X-API-Key ausente ou inválida" | Cole a senha no campo X-API-Key do painel: `troque-esta-chave` ou a do seu `.env` |
+| `Execução ignorada: Outra execução está em andamento` | Já há um robô rodando (por exemplo, `run --loop`). Espere terminar ou feche o outro terminal |
 
 Outros comandos:
 
@@ -151,8 +189,6 @@ python -m pytest -v                 # 53 testes (sucesso, decisão, falha, LGPD,
 ```
 
 Testado em Linux (Python 3.13, sem internet: clima em fallback) e em Windows 11 (Python 3.14, com a Open-Meteo real).
-
-No Windows, também dá para dar dois cliques em **`testar_no_windows.bat`**: ele cria o ambiente, instala as dependências, executa o robô, testa a API e roda os testes, salvando tudo em `teste_windows_resultado.txt`.
 
 ### Configuração (opcional)
 
