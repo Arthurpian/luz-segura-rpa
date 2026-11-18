@@ -32,7 +32,6 @@ if errorlevel 1 (
   echo ERRO na instalacao das dependencias >> "%LOG%"
   goto fim
 )
-if not exist ".env" copy ".env.example" ".env" >nul
 
 echo [3/5] Gerando cenarios e executando o robo ...
 echo. >> "%LOG%"

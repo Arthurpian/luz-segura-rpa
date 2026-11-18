@@ -135,7 +135,6 @@ cd luz-segura-rpa
 python -m venv .venv
 # Windows: .venv\Scripts\activate    |    Linux/Mac: source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env          # Windows: copy .env.example .env
 
 python main.py seed           # gera 21 cenários de teste + histórico (apaga dados anteriores)
 python main.py run            # executa o robô uma vez e mostra o resumo
@@ -154,6 +153,16 @@ python -m pytest -v                 # 53 testes (sucesso, decisão, falha, LGPD,
 Testado em Linux (Python 3.13, sem internet: clima em fallback) e em Windows 11 (Python 3.14, com a Open-Meteo real).
 
 No Windows, também dá para dar dois cliques em **`testar_no_windows.bat`**: ele cria o ambiente, instala as dependências, executa o robô, testa a API e roda os testes, salvando tudo em `teste_windows_resultado.txt`.
+
+### Configuração (opcional)
+
+O projeto roda sem nenhum arquivo de configuração: todos os valores têm padrão em `src/luzsegura_rpa/config.py`. Para mudar algum, crie um arquivo `.env` na raiz (ele não vai para o Git):
+
+```ini
+LUZSEGURA_API_KEY=uma-senha-sua          # senha do painel e das rotas que alteram dados (padrão: troque-esta-chave)
+SALT_PSEUDONIMIZACAO=outro-valor-secreto # usado no hash do contato do cidadão (LGPD)
+OPEN_METEO_URL=https://api.open-meteo.com/v1/forecast   # troque por um endereço inválido para simular a API fora do ar
+```
 
 Em produção, o agendamento pode ser feito pelo Agendador de Tarefas do Windows, `cron` ou GitHub Actions (`schedule`) chamando `python main.py run`.
 

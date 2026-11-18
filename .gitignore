@@ -1,5 +1,6 @@
-# segredos
+# segredos e configuração local (o projeto roda sem eles; ver README)
 .env
+.env.example
 
 # Python
 __pycache__/
